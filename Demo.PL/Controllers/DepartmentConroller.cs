@@ -1,10 +1,19 @@
-﻿namespace Demo.PL.Controllers
+﻿using Demo.BLL;
+using Microsoft.AspNetCore.Mvc;
+using Demo.BLL.DtOs;
+
+
+namespace Demo.PL.Controllers
 {
-    public class DepartmentConroller
+    public class DepartmentController(IDepartmentService _departmentService):Controller
     {
-        public DepartmentConroller()
+        [HttpGet]
+
+        public IActionResult Index() 
+
         {
-            
+            var departments = _departmentService.GetAllDepartments();
+            return View(departments);
         }
     }
 }

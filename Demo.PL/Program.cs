@@ -1,4 +1,6 @@
+using Demo.BLL;
 using Demo.DAL.Data.Context;
+using Demo.DAL.Repositiories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Demo.PL
@@ -19,6 +21,9 @@ namespace Demo.PL
 
 
             });
+
+            builder .Services .AddScoped<IDepartmentRepo ,DepartmentRepo>();
+            builder .Services .AddScoped<IDepartmentService, DepartmentService>();
 
             var app = builder.Build();
 
